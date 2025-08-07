@@ -1,0 +1,33 @@
+@import '../base/variables';
+@import '../utils/mixins';
+
+.site-header {
+    background-color: $color-white;
+    padding: 1rem 0;
+    border-bottom: 1px solid $color-border;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__logo h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        color: $color-text;
+    }
+
+    &__nav ul {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    &__link {
+        font-weight: 500;
+        &:hover {
+            color: darken($color-primary, 10%);
+        }
+    }
+}

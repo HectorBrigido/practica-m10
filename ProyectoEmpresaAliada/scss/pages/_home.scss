@@ -1,0 +1,98 @@
+@import '../base/variables';
+@import '../utils/mixins';
+
+// Estilos para la sección de registro de guías
+.guide-registration {
+    &__form {
+        display: grid;
+        gap: 1rem 1.5rem;
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .btn {
+            grid-column: 1 / -1;
+            justify-self: start;
+            margin-top: 1rem;
+        }
+    }
+
+    .form__error {
+        color: $color-danger;
+        font-weight: 500;
+        grid-column: 1 / -1;
+        min-height: 1.2em; // Evita que el layout salte al aparecer el mensaje
+    }
+}
+
+// Estilos para la sección de estado general
+.status-overview {
+    &__grid {
+        display: grid;
+        gap: 1.5rem;
+        text-align: center;
+
+        @include tablet {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__item {
+        background-color: $color-background;
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
+    &__subtitle { color: darken($color-primary, 10%); }
+    &__number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $color-primary;
+    }
+}
+
+// Estilos para la sección de lista de guías
+.guide-list {
+    &__search {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__search-input {
+        flex-grow: 1;
+        padding: 0.75rem;
+        border: 1px solid $color-border;
+        border-radius: 0.25rem;
+    }
+
+    &__table-container { overflow-x: auto; }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid $color-border;
+            vertical-align: middle;
+        }
+
+        thead th {
+            background-color: $color-background;
+            font-weight: 700;
+        }
+
+        tbody tr:hover {
+            background-color: lighten($color-background, 2%);
+        }
+
+        td:last-child {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+    }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hound Express - Seguimiento de Paquetes</title>
+    <link rel="stylesheet" href="scss/main.css"> <!-- CORRECCIÓN: Apuntar al CSS compilado, no al SCSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container site-header__content">
+            <div class="site-header__logo">
+                <h1>Hound Express</h1>
+            </div>
+            <nav class="site-header__nav">
+                <ul>
+                    <li><a class="site-header__link" href="#top">Inicio</a></li>
+                    <li><a class="site-header__link" href="#registro-guias">Registro de Guías</a></li>
+                    <li><a class="site-header__link" href="#estado-general">Estado General</a></li>
+                    <li><a class="site-header__link" href="#lista-guias">Lista de Guías</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="banner">
+            <div class="container banner__content">
+                <h2 class="banner__title">Tu envío, nuestra prioridad</h2>
+                <p class="banner__text">Rastrea tus paquetes con la confianza y velocidad que solo Hound Express te puede dar.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="registro-guias" class="card guide-registration">
+            <h2 class="card__title"><a href="#registro-guias">Registro de Nuevas Guías</a></h2>
+            <form id="guide-form" class="guide-registration__form" novalidate>
+                <div id="form-error-message" class="form__error"></div>
+                <div class="form-group">
+                    <label class="form-group__label" for="numero-guia">Número de Guía</label>
+                    <input class="form-group__input" type="text" id="numero-guia" name="numero-guia" placeholder="Ej: HE-123456789" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-group__label" for="origen">Origen</label>
+                    <input class="form-group__input" type="text" id="origen" name="origen" placeholder="Ciudad de Origen" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-group__label" for="destino">Destino</label>
+                    <input class="form-group__input" type="text" id="destino" name="destino" placeholder="Ciudad de Destino" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-group__label" for="destinatario">Destinatario</label>
+                    <input class="form-group__input" type="text" id="destinatario" name="destinatario" placeholder="Nombre del destinatario" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-group__label" for="fecha-creacion">Fecha de Creación</label>
+                    <input class="form-group__input" type="date" id="fecha-creacion" name="fecha-creacion" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-group__label" for="estado-inicial">Estado Inicial</label>
+                    <select class="form-group__input" id="estado-inicial" name="estado-inicial">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-transito">En Tránsito</option>
+                        <option value="entregado">Entregado</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn--primary">Registrar Guía</button>
+            </form>
+        </section>
+
+        <section id="estado-general" class="card status-overview">
+            <h2 class="card__title"><a href="#estado-general">Estado General del Sistema</a></h2>
+            <div class="status-overview__grid">
+                <div class="status-overview__item">
+                    <h3 class="status-overview__subtitle">Guías Totales</h3>
+                    <p id="total-guides-count" class="status-overview__number">0</p>
+                </div>
+                <div class="status-overview__item">
+                    <h3 class="status-overview__subtitle">En Tránsito</h3>
+                    <p id="in-transit-guides-count" class="status-overview__number">0</p>
+                </div>
+                <div class="status-overview__item">
+                    <h3 class="status-overview__subtitle">Entregadas</h3>
+                    <p id="delivered-guides-count" class="status-overview__number">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="lista-guias" class="card guide-list">
+            <h2 class="card__title"><a href="#lista-guias">Lista de Guías</a></h2>
+            <div class="guide-list__search">
+                <label for="buscar-guia" class="sr-only">Buscar Guía</label> <!-- sr-only es para accesibilidad, la ocultaremos con CSS -->
+                <input class="guide-list__search-input" type="search" id="buscar-guia" placeholder="Buscar por número de guía...">
+                <button class="btn">Buscar</button>
+            </div>
+            <div class="guide-list__table-container">
+                <table class="guide-list__table">
+                    <thead>
+                        <tr>
+                            <th>Número de Guía</th>
+                            <th>Estado</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Últ. Actualización</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guide-list-body">
+                        <!-- Las filas de la tabla se generarán dinámicamente con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container site-footer__content">
+            <p>&copy; 2023 Hound Express. Todos los derechos reservados.</p>
+            <div class="site-footer__links">
+                <a class="site-footer__link" href="#">Contacto</a>
+                <a class="site-footer__link" href="#">Política de Privacidad</a>
+                <a class="site-footer__link" href="#">Redes Sociales</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para el Historial -->
+    <div id="history-modal" class="modal">
+        <div class="modal__content">
+            <button id="modal-close-btn" class="modal__close">&times;</button>
+            <h3 id="modal-title">Historial de la Guía</h3>
+            <div id="modal-body">
+                <!-- El historial se cargará aquí dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

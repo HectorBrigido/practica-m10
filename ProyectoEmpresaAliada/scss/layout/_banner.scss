@@ -1,0 +1,17 @@
+@import '../base/variables';
+
+.banner {
+    background-color: $color-primary;
+    color: $color-text-light;
+    padding: 3rem 0;
+    text-align: center;
+
+    &__title {
+        margin-bottom: 0.5rem;
+    }
+
+    &__text {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+}

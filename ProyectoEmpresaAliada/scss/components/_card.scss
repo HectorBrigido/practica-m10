@@ -1,0 +1,18 @@
+@import '../base/variables';
+
+.card {
+    background-color: $color-white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+
+    &__title {
+        color: darken($color-primary, 10%);
+        border-bottom: 2px solid $color-border;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+
+        a { color: inherit; }
+    }
+}

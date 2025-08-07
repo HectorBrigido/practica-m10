@@ -1,0 +1,25 @@
+// 1. Utilidades y Variables (primero para que estén disponibles para todos)
+@import 'base/variables';
+@import 'utils/mixins';
+
+// 2. Estilos Base
+@import 'base/base';
+
+// 3. Layout (Estructura principal de la página)
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/banner';
+@import 'layout/footer';
+
+// 4. Componentes (Bloques reutilizables)
+@import 'components/buttons';
+@import 'components/card';
+@import 'components/form';
+@import 'components/status';
+@import 'components/modal';
+
+// 5. Estilos específicos de la página
+@import 'pages/home';
+
+// Nota: No es necesario incluir la extensión .scss ni el guion bajo
+// en los @import, Sass lo entiende automáticamente.
