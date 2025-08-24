@@ -21,7 +21,7 @@
             <div class="site-header__logo">
                 <h1>Hound Express</h1>
             </div>
-            <nav class="site-header__nav">
+            <nav class="site-header__nav" aria-label="Navegación principal">
                 <ul>
                     <li><a class="site-header__link" href="#top">Inicio</a></li>
                     <li><a class="site-header__link" href="#registro-guias">Registro de Guías</a></li>
@@ -30,13 +30,14 @@
                 </ul>
             </nav>
         </div>
-        <div class="banner">
-            <div class="container banner__content">
-                <h2 class="banner__title">Tu envío, nuestra prioridad</h2>
-                <p class="banner__text">Rastrea tus paquetes con la confianza y velocidad que solo Hound Express te puede dar.</p>
-            </div>
-        </div>
     </header>
+
+    <div class="banner">
+        <div class="container banner__content">
+            <h2 class="banner__title">Tu envío, nuestra prioridad</h2>
+            <p class="banner__text">Rastrea tus paquetes con la confianza y velocidad que solo Hound Express te puede dar.</p>
+        </div>
+    </div>
 
     <main class="container">
         <section id="registro-guias" class="card guide-registration">
@@ -94,14 +95,14 @@
         </section>
 
         <section id="lista-guias" class="card guide-list">
-            <h2 class="card__title"><a href="#lista-guias">Lista de Guías</a></h2>
+            <h2 id="lista-guias-titulo" class="card__title"><a href="#lista-guias">Lista de Guías</a></h2>
             <div class="guide-list__search">
                 <label for="buscar-guia" class="sr-only">Buscar Guía</label> <!-- sr-only es para accesibilidad, la ocultaremos con CSS -->
-                <input class="guide-list__search-input" type="search" id="buscar-guia" placeholder="Buscar por número de guía..." aria-label="Buscar guía por número">
+                <input class="guide-list__search-input" type="search" id="buscar-guia" placeholder="Buscar por número de guía...">
                 <button type="button" class="btn" aria-label="Iniciar búsqueda de guía">Buscar</button>
 
             </div>
-            <div class="guide-list__table-container">
+            <div class="guide-list__table-container" role="region" aria-labelledby="lista-guias-titulo">
                 <table class="guide-list__table">
                     <thead>
                         <tr>
@@ -124,11 +125,11 @@
     <footer class="site-footer">
         <div class="container site-footer__content">
             <p>&copy; 2023 Hound Express. Todos los derechos reservados.</p>
-            <div class="site-footer__links">
+            <nav class="site-footer__links" aria-label="Navegación secundaria">
                 <a class="site-footer__link" href="#">Contacto</a>
                 <a class="site-footer__link" href="#">Política de Privacidad</a>
                 <a class="site-footer__link" href="#">Redes Sociales</a>
-            </div>
+            </nav>
         </div>
     </footer>
 
@@ -146,4 +147,3 @@
     <script src="js/script.js"></script>
 </body>
 </html>
-
