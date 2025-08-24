@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma de seguimiento de paquetes para la empresa aliada de Hound Express. Registre y consulte el estado de sus guías de envío.">
+    <meta name="keywords" content="hound express, seguimiento, paquetes, guías, envío, logística">
+    <meta name="author" content="Hound Express">
+    <meta name="robots" content="index, follow">
+
     <title>Hound Express - Seguimiento de Paquetes</title>
-    <link rel="stylesheet" href="scss/main.css"> <!-- CORRECCIÓN: Apuntar al CSS compilado, no al SCSS -->
+    <link rel="stylesheet" href="scss/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -37,7 +42,7 @@
         <section id="registro-guias" class="card guide-registration">
             <h2 class="card__title"><a href="#registro-guias">Registro de Nuevas Guías</a></h2>
             <form id="guide-form" class="guide-registration__form" novalidate>
-                <div id="form-error-message" class="form__error"></div>
+                <div id="form-error-message" class="form__error" role="alert" aria-live="assertive"></div>
                 <div class="form-group">
                     <label class="form-group__label" for="numero-guia">Número de Guía</label>
                     <input class="form-group__input" type="text" id="numero-guia" name="numero-guia" placeholder="Ej: HE-123456789" required>
@@ -92,8 +97,9 @@
             <h2 class="card__title"><a href="#lista-guias">Lista de Guías</a></h2>
             <div class="guide-list__search">
                 <label for="buscar-guia" class="sr-only">Buscar Guía</label> <!-- sr-only es para accesibilidad, la ocultaremos con CSS -->
-                <input class="guide-list__search-input" type="search" id="buscar-guia" placeholder="Buscar por número de guía...">
-                <button class="btn">Buscar</button>
+                <input class="guide-list__search-input" type="search" id="buscar-guia" placeholder="Buscar por número de guía..." aria-label="Buscar guía por número">
+                <button type="button" class="btn" aria-label="Iniciar búsqueda de guía">Buscar</button>
+
             </div>
             <div class="guide-list__table-container">
                 <table class="guide-list__table">
@@ -127,11 +133,11 @@
     </footer>
 
     <!-- Modal para el Historial -->
-    <div id="history-modal" class="modal">
-        <div class="modal__content">
-            <button id="modal-close-btn" class="modal__close">&times;</button>
-            <h3 id="modal-title">Historial de la Guía</h3>
-            <div id="modal-body">
+    <div id="history-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal__content" role="document">
+            <button id="modal-close-btn" class="modal__close" aria-label="Cerrar modal">&times;</button>
+            <h3 id="modal-title">Historial de la Guía: <span id="modal-guide-number"></span></h3>
+            <div id="modal-body" class="modal__body">
                 <!-- El historial se cargará aquí dinámicamente -->
             </div>
         </div>
@@ -140,3 +146,4 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+
